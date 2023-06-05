@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <form onsubmit="SaveToLocalStorage(event)">
+            <label>Name</label>
+            <input type="text" Name="username" required>
+            <label>Email</label>
+            <input type="email" Name="Email" required>
+            <label>Password</label>
+            <input type="password" name="Password" required>
+            <button>submit</button>
+        </form>
+        <script>
+            function SaveToLocalStorage(event) {
+                event.preventDefault();
+                const Name = event.target.username.value;
+                const email = event.target.Email.value;
+                const password = event.target.Password.value;
+                localStorage.setItem('Name', Name);
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+                const obj ={
+                    Name,
+                    email,
+                    password
+                }
+                localStorage.setItem('userDetails', JSON.stringify(obj));
+            }
+        </script>
+    </body>
+</html>
