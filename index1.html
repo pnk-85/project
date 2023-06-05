@@ -10,6 +10,7 @@
             <button>submit</button>
         </form>
         <ul id="listOfitems"></ul>
+        
         <script>
             function SaveToLocalStorage(event) {
                 event.preventDefault();
@@ -34,7 +35,20 @@
                 childElem.textContent = obj.name +' '+obj.email + ' ' + obj.password;
                 parentElem.appendChild(childElem);
                // parentElem.innerHTML =parentElem.innerHTML + '<li>$(obj.name) - $(obj.email) - $(obj.password)</li>'
+
+               const deletButton = document.createElement('input');
+               deletButton.type = 'buttoon';
+               deletButton.value = 'Delet';
+               deletButton.onclick = () => {
+                localStorage.removeItem(obj.email);
+                parentElem.appendChild(childElem);
+               }
+
+               childElem.appendChild(deletButton);
+               parentElem.appendChild(childElem);
             }
+
+
         </script>
     </body>
 </html>
