@@ -37,14 +37,26 @@
                // parentElem.innerHTML =parentElem.innerHTML + '<li>$(obj.name) - $(obj.email) - $(obj.password)</li>'
 
                const deletButton = document.createElement('input');
-               deletButton.type = 'buttoon';
+               deletButton.type = 'button';
                deletButton.value = 'Delet';
                deletButton.onclick = () => {
                 localStorage.removeItem(obj.email);
-                parentElem.appendChild(childElem);
+                parentElem.removeChild(childElem);
                }
-
+                
+                const editButton = document.createElement('input');
+               deletButton.type = 'button';
+               deletButton.value = 'edit';
+               deletButton.onclick = () => {
+                localStorage.removeItem(obj.email);
+                parentElem.removeChild(childElem);
+                document.getElementById('usernmInputTag').value = obj.name;
+                document.getElementById('emailInputTag').value = obj.email;
+                document.getElementById('passwordInputTag').value = obj.password;
+               }
+               
                childElem.appendChild(deletButton);
+               childElem.appendChild(editButton);
                parentElem.appendChild(childElem);
             }
 
