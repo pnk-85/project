@@ -25,17 +25,18 @@ function addItem(e){
 
   // Create del button element
   var deleteBtn = document.createElement('button');
-
+  var editBtn = document.createElement('button');
   // Add classes to del button
   deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
-
+  editBtn.className = 'fa fa-edit float-right';
   // Append text node
   deleteBtn.appendChild(document.createTextNode('X'));
-
+  editBtn.appendChild(document.createTextNode('edit'));
   // Append button to li
   li.appendChild(deleteBtn);
-
+  li.appendChild(editBtn);
   // Append li to list
+  itemList.appendChild(li);
   itemList.appendChild(li);
 }
 
